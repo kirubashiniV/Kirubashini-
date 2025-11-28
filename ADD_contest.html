@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>RadioBox - Online Music Player</title>
+
+    <style>
+        body {
+            background: #f2f2f2;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            color: black;
+        }
+
+        .player-box {
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .play-btn {
+            background: green;
+            color: white;
+        }
+
+        .pause-btn {
+            background: red;
+            color: white;
+        }
+
+        #currentTrack {
+            margin-top: 15px;
+            font-weight: bold;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎵 RadioBox - Online Music Player</h1>
+
+    <div class="player-box">
+        <!-- Audio Tracks -->
+        <audio id="track1" src="C:\Users\kirubashini\Downloads\velicha_poove.mp3"></audio>
+        <audio id="track2" src="C:\Users\kirubashini\Downloads\nenjukkul_peidhidum.mp3"></audio>
+        <audio id="track3" src="C:\Users\kirubashini\Downloads\_Yaanji_Love_Bgm_Vikram_Vedha_Tamil_Ringtone_(by Fringster.com).mp3"></audio>
+        <audio id="track4" src="C:\Users\kirubashini\Downloads\_Anegan_Flute_Bgm_Ringtone_(by Fringster.com).mp3"></audio>
+        <audio id="track5" src="C:\Users\kirubashini\Downloads\_Kadhal_Ennum_Therveluthi_Flute_Bgm_Ringtone_(by Fringster.com).mp3"></audio>
+        <audio id="track6" src="C:\Users\kirubashini\Downloads\_Kaadhal_En_Kaviye_Bgm_Tamil_Ringtone_(by Fringster.com).mp3"></audio>
+        <audio id="track7" src="C:\Users\kirubashini\Downloads\vizhi_moodi.mp3"></audio>
+        <audio id="track8" src="C:\Users\kirubashini\Downloads\Munbe Vaa Flute.mp3"></audio>
+        <audio id="track9" src="C:\Users\kirubashini\Downloads\Anbe Peranbe - NGK _ BGM Ringt-Downringtone.com.mp3"></audio>
+        <audio id="track10" src="C:\Users\kirubashini\Downloads\Puthu Vellai Mazhai - Instrumental.mp3"></audio>
+
+        <button class="play-btn" onclick="playTrack('track1', 'Song 1')">Play Velicha poove bgm</button>
+        <button class="play-btn" onclick="playTrack('track2', 'Song 2')">Play Nenjukkul peidhidum bgm</button>
+        <button class="play-btn" onclick="playTrack('track3', 'Song 3')">Play Yaanji bgm</button>
+
+        <!-- Buttons for new tracks -->
+        <button class="play-btn" onclick="playTrack('track4', 'Song 4')">Play Anegan bgm </button>
+        <button class="play-btn" onclick="playTrack('track5', 'Song 5')">Play Kaadhal ennum bgm</button>
+        <button class="play-btn" onclick="playTrack('track6', 'Song 6')">Play Kaadhal en kaviye bgm</button>
+        <button class="play-btn" onclick="playTrack('track7', 'Song 7')">Play Vizhi moodi bgm</button>
+        <button class="play-btn" onclick="playTrack('track8', 'Song 8')">Play Munbe vaa bgm</button>
+        <button class="play-btn" onclick="playTrack('track9', 'Song 9')">Play Anbe peranbe bgm</button>
+        <button class="play-btn" onclick="playTrack('track10', 'Song 10')">Play Puthu vellai mazhai bgm</button>
+
+        <br>
+
+        <button class="pause-btn" onclick="pauseMusic()">Pause</button>
+
+        <p id="currentTrack">No track playing</p>
+    </div>
+
+    <script>
+        let currentAudio = null;
+
+        function playTrack(id, name) {
+            if (currentAudio) {
+                currentAudio.pause();   // stop previous
+                currentAudio.currentTime = 0;
+            }
+
+            currentAudio = document.getElementById(id);
+            currentAudio.play();
+
+            document.getElementById("currentTrack").innerText =
+                "Now Playing: " + name;
+        }
+
+        function pauseMusic() {
+            if (currentAudio) {
+                currentAudio.pause();
+                document.getElementById("currentTrack").innerText =
+                    "Paused";
+            }
+        }
+    </script>
+
+</body>
+</html>
